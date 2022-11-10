@@ -1,20 +1,20 @@
 package orderingmain
 
 import (
-	api "github.com/j-ew-s/ms-curso-ordering-api/ordering-services/api"
+	"github.com/j-ew-s/ms-curso-ordering-api/src/ordering-services/api"
 
-	"github.com/valyala/fasthttprouter"
+	fasthttprouter "github.com/valyala/fasthttprouter"
 )
 
 type OrderingMain struct {
-	api *api
+	Ordering *api.Ordering
 }
 
 func SetOrderingMain() OrderingMain {
 
-	api := &api{}
+	o := &api.Ordering{}
 	entity := OrderingMain{
-		api: api,
+		Ordering: o,
 	}
 
 	return entity
