@@ -1,2 +1,16 @@
 # ms-curso-ordering-api
-w
+
+# Go Mod Init
+
+ms-curso-ordering-api
+
+# Pacotes para fazer Go Get
+go get github.com/valyala/fasthttp
+go get github.com/valyala/fasthttprouter
+
+
+## Porta
+5400
+
+
+
