@@ -31,7 +31,7 @@ func (sqlCommand SQLCommand) Ping() error {
 		return err
 	}
 
-	fmt.Println("Connected!")
+	fmt.Println("SQL DB : Connected!")
 	return nil
 }
 
@@ -45,5 +45,4 @@ func (sqlCommand SQLCommand) OpenConnection() (*gorm.DB, error) {
 	}
 
 	return db, nil
-
 }
