@@ -38,7 +38,6 @@ func (o Ordering) PlaceOrder(ctx *fasthttp.RequestCtx) {
 	}
 
 	common.PrepareResponse(ctx, 201, order.Id)
-
 }
 
 func (o Ordering) CalculateOrderTotal(order *models.Order) {
