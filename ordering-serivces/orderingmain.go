@@ -26,4 +26,6 @@ func CreateOrderingMain(dbConn *database.SQLCommand) OrderingMain {
 
 func (o OrderingMain) SetRoutes(router *fasthttprouter.Router) {
 	router.POST("/", o.orderingAPI.PlaceOrder)
+	router.GET("/user/:id", o.orderingAPI.GetOrdersByUserId)
+	router.GET("/detail/:id", o.orderingAPI.GetOrderById)
 }

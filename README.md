@@ -24,3 +24,8 @@ Kafka :
 MySQL : 
 
 GRPC : 
+
+
+# NOTES
+
+- Usando https://gorm.io/docs/preload.html#content-inner   para ler objetos filhos.  Um Eager Load a maneira do GORM

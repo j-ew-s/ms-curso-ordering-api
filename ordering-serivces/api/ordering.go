@@ -40,6 +40,34 @@ func (o Ordering) PlaceOrder(ctx *fasthttp.RequestCtx) {
 	common.PrepareResponse(ctx, 201, order.Id)
 }
 
+func (o Ordering) GetOrderById(ctx *fasthttp.RequestCtx) {
+
+	id := fmt.Sprintf("%v", ctx.UserValue("id"))
+
+	orders, err := o.DBConn.GetOrdersById(id)
+
+	if err != nil {
+		fmt.Println(fmt.Printf(" ERROR :::  %+v ::", err))
+		common.PrepareResponse(ctx, 500, nil)
+	}
+
+	common.PrepareResponse(ctx, 200, orders)
+}
+
+func (o Ordering) GetOrdersByUserId(ctx *fasthttp.RequestCtx) {
+
+	id := fmt.Sprintf("%v", ctx.UserValue("id"))
+
+	orders, err := o.DBConn.GetOrdersByUserId(id)
+
+	if err != nil {
+		fmt.Println(fmt.Printf(" ERROR :::  %+v ::", err))
+		common.PrepareResponse(ctx, 500, nil)
+	}
+
+	common.PrepareResponse(ctx, 200, orders)
+}
+
 func (o Ordering) CalculateOrderTotal(order *models.Order) {
 
 	for i, item := range order.Items {
