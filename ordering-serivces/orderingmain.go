@@ -2,6 +2,8 @@ package orderingmain
 
 import (
 	"github.com/buaazp/fasthttprouter"
+	authServices "github.com/j-ew-s/ms-curso-ordering-api/auth-services"
+
 	"github.com/j-ew-s/ms-curso-ordering-api/database"
 	"github.com/j-ew-s/ms-curso-ordering-api/ordering-serivces/api"
 )
@@ -25,7 +27,7 @@ func CreateOrderingMain(dbConn *database.SQLCommand) OrderingMain {
 }
 
 func (o OrderingMain) SetRoutes(router *fasthttprouter.Router) {
-	router.POST("/", o.orderingAPI.PlaceOrder)
-	router.GET("/user/:id", o.orderingAPI.GetOrdersByUserId)
-	router.GET("/detail/:id", o.orderingAPI.GetOrderById)
+	router.POST("/", authServices.AuthSessionValidator(o.orderingAPI.PlaceOrder))
+	router.GET("/user/:id", authServices.AuthSessionValidator(o.orderingAPI.GetOrdersByUserId))
+	router.GET("/detail/:id", authServices.AuthSessionValidator(o.orderingAPI.GetOrderById))
 }
